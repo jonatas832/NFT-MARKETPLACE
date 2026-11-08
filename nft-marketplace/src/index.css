@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+body { @apply bg-bg font-sans text-white antialiased; }
+:focus-visible { outline: 2px solid #A259FF; outline-offset: 2px; }
+.skeleton { @apply relative overflow-hidden rounded-2xl bg-card; }
+.skeleton::after {
+  content: ''; position: absolute; inset: 0; transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.08), transparent);
+  @apply animate-shimmer;
+}
+@media (prefers-reduced-motion: reduce) { .skeleton::after { animation: none; } * { scroll-behavior: auto !important; } }
+.sr-only-live { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
